@@ -1,0 +1,8 @@
++ react-native-screens@3.8.0
+added 2 packages from 2 contributors and audited 1017 packages in 11.632s
+
+28 packages are looking for funding
+  run `npm fund` for details
+
+found 37 vulnerabilities (4 low, 23 moderate, 10 high)
+  run `npm audit fix` to fix them, or `npm audit` for details
