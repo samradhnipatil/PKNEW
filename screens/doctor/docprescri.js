@@ -72,7 +72,7 @@ export default function DocPrescri({route,navigation}) {
         const starCountRef = ref(db, 'Online_Appointments/'+ Patid+'/'+ useri +'/'+ Appointmentid);
         onValue(starCountRef, (snapshot) => {
             const adata = snapshot.val();
-            console.log('CANCELadata',adata);
+            console.log('CANCELadata',Patid,useri,Appointmentid);
             set(ref(db,'Online_Appointments/'+ Patid+'/'+ useri +'/'+ Appointmentid), {
                 Pat_Dob: adata["Pat_Dob"],
                 Pat_Nam: adata["Pat_Nam"],

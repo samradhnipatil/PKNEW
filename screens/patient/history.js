@@ -26,21 +26,40 @@ export default function History({ route, navigation }) {
         const starCountRef1 = ref(db,'Prescription/'+ pid + '/' + did + '/' + apid);
         onValue(starCountRef1, (snapshot) => {
             const datapres = snapshot.val(); 
-            console.log('datapatsssssssssssssss',datapres);
-            navigation.navigate('History1',{
-                Doctname : doctname,
-                Dpost : dpost,
-                Ddate : date,
-                Demail : demail,
-                Patname : Pat_Nam,
-                Patcontact : pcontact,
-                Pbloodg : pbloodg,
-                Disease: datapres['Disease'],
-                Dosage:datapres['Dosage'],
-                Frequency:datapres['Frequency'],
-                Medicine: datapres['Medicine'],
-                Test:datapres['Test'],
-            });
+            // if(datapres == null)
+            // {
+            //     navigation.navigate('History1',{
+            //         Doctname : doctname,
+            //         Dpost : dpost,
+            //         Ddate : date,
+            //         Demail : demail,
+            //         Patname : Pat_Nam,
+            //         Patcontact : pcontact,
+            //         Pbloodg : pbloodg,
+            //         Disease: '',
+            //         Dosage:'',
+            //         Frequency:'',
+            //         Medicine: '',
+            //         Test:'',
+            //     });
+            // }
+            // else{
+                console.log('datapatsssssssssssssss',datapres,pid,did,apid);
+                navigation.navigate('History1',{
+                    Doctname : doctname,
+                    Dpost : dpost,
+                    Ddate : date,
+                    Demail : demail,
+                    Patname : Pat_Nam,
+                    Patcontact : pcontact,
+                    Pbloodg : pbloodg,
+                    Disease: datapres['Disease'],
+                    Dosage: datapres['Dosage'],
+                    Frequency: datapres['Frequency'],
+                    Medicine: datapres['Medicine'],
+                    Test: datapres['Test'],
+                });
+            // }            
         }); 
     }
 
