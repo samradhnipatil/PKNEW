@@ -27,9 +27,11 @@ export default function Dochome({ route, navigation }) {
     const db = getDatabase();
     // const offdata = {};
     const user = auth.currentUser;
-    console.log('user',user['uid']);
+    // console.log('user',user['uid']);
     const useri = user['uid'];
     var arr = [];
+    var arrcn = [];
+    var arrcmp = [];
     const patids = [];
 
     useEffect(() => {
@@ -70,63 +72,16 @@ export default function Dochome({ route, navigation }) {
                 });
             });
             console.log('arr3on',arr);
-            var arrpend = arr.filter(person => person.Status == "pending")
-            // console.log('pendings',arrpend);
-            console.log('Arrrrayy1111111111111111111111 :',arr);
-            arr = arrpend;
-            console.log('Arrrrayy2222222222222222222222 :',arr);
+            // var arrpend = arr.filter(person => person.Status == "pending")
+            // console.log('Arrrrayy1111111111111111111111 :',arr);
+            // arr = arrpend;
+            // console.log('Arrrrayy2222222222222222222222 :',arr);
             } else {
                 console.log("No data available");
             }
         }).catch((error) => {
         console.error(error);
         });
-        // get(child(dbRef, `Offline_Appointments/`)).then((snapshot) => {
-        //     if (snapshot.exists()) {
-            
-        //         snapshot.forEach(function(childSnapshot) {
-        //             var patiddf = childSnapshot.key;
-        //             childSnapshot.forEach(function(snapshot3) {
-        //                 var dociddf = snapshot3.key;
-        //                 if (useri == dociddf)
-        //                 {
-        //                     snapshot3.forEach(function(snapshot4) {
-        //                     var appiddf = snapshot4.key;
-        //                     const starCountRef = ref(db, 'Offline_Appointments/'+ patiddf+'/'+ dociddf +'/'+ appiddf);
-        //                     onValue(starCountRef, (snapshot) => {
-        //                         const data1f = snapshot.val();
-        //                         // const starCountRef1 = ref(db, 'Patients/'+ patiddf);
-        //                         // onValue(starCountRef1, (snapshot1) => {
-        //                         //     const datapatf = snapshot1.val(); 
-        //                         //     // console.log("\npatname : "+ datapat['Name']);
-        //                         //     const pnamef = datapatf['Name'];
-        //                         //     data1f.patname = pnamef;
-        //                         // }); 
-        //                         // data1f.patid = patiddf;
-        //                         data1f.pid = patiddf;
-        //                         data1f.id = appiddf;
-        //                         data1f.session = 'Morning';
-        //                         arr.push(data1f);
-        //                         console.log('data1f :',data1f);
-        //                         console.log("\npatiddf : "+ patiddf+"\ndociddf : "+ dociddf+ "\nappiddf : "+ appiddf+'\n\n\n');
-                                
-        //                     }); 
-                            
-        //                     });
-        //                 }
-        //                 else
-        //                 {
-        //                     console.log('error:No Appoiintments available found');
-        //                 }                
-        //         });
-        //     });
-        //     console.log('arroff',arr);
-        //     } else {
-        //         console.log("No data available");
-        //     }
-        // }).catch((error) => {
-        // console.error(error);
-        // });
     });
 
 
@@ -144,8 +99,9 @@ export default function Dochome({ route, navigation }) {
     
     const showmyappoin = () => {
         navigation.navigate('MyAppointDoc',{
-            arr,
-        });
+            arr
+        });  
+        
     }
 
     const newsec = () => {
